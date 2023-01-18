@@ -26,7 +26,8 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git checkout -b docs
+          git checkout -b gh-pages
+          git rm -rf .
           git add docs
           git commit -m "docs: updating docs"
-          git push origin docs
+          git push origin gh-pages
