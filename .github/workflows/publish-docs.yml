@@ -20,7 +20,7 @@ jobs:
           Import-Module platyPS
           cd ./BenchPress/Helpers/Azure/
           Import-Module ./BenchPress.Azure.psd1
-          New-MarkdownHelp -Module BenchPress.Azure -OutputFolder ..\..\..\docs
+          New-MarkdownHelp -Module BenchPress.Azure -OutputFolder ..\..\..\docs -Force -AlphabeticParamsOrder -UseFullTypeName -WithModulePage
 
       - name: Publish changes to docs branch
         run: |
