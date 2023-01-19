@@ -40,10 +40,11 @@ jobs:
             Write-Host "Updating $File"
             $Frontmatter = ""
             $FrontMatter += "---`r`n"
-            $FrontMatter += "Title: `"$($File.BaseName)`"`r`n"
-            $FrontMatter += "Module: `"BenchPress.Azure`"`r`n"
-            $FrontMatter += "Version: `"${{ github.sha }}`"`r`n"
-            $FrontMatter += "UpdatedOn: `"$(Get-Date -Format "yyyy-MM-dd HH:mm K")`"`r`n"
+            $FrontMatter += "layout: `"../layouts/BaseLayout.astro`"`r`n"
+            $FrontMatter += "title: `"$($File.BaseName)`"`r`n"
+            $FrontMatter += "module: `"BenchPress.Azure`"`r`n"
+            $FrontMatter += "version: `"${{ github.sha }}`"`r`n"
+            $FrontMatter += "updatedOn: `"$(Get-Date -Format "yyyy-MM-dd HH:mm K")`"`r`n"
             $FrontMatter += "---`r`n"
 
             $Content = Get-Content $File -Raw
