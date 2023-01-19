@@ -38,12 +38,11 @@ jobs:
           New-MarkdownHelp -Module BenchPress.Azure -OutputFolder $DocOutputFolder -Force -AlphabeticParamsOrder -UseFullTypeName -NoMetadata
           foreach ($File in Get-ChildItem $DocOutputFolder\*.md) {
             Write-Host "Updating $File"
-            $FrontMatterVersion = ${{ github.sha }}
             $Frontmatter = ""
             $FrontMatter += "---`r`n"
             $FrontMatter += "Title: `"$($File.BaseName)`"`r`n"
             $FrontMatter += "Module: `"BenchPress.Azure`"`r`n"
-            $FrontMatter += "Version: `"$FrontMatterVersion`"`r`n"
+            $FrontMatter += "Version: `"${{ github.sha }}`"`r`n"
             $FrontMatter += "UpdatedOn: `"$(Get-Date -Format "yyyy-MM-dd HH:mm K")`"`r`n"
             $FrontMatter += "---`r`n"
 
